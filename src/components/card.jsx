@@ -1,7 +1,7 @@
 import react from 'react';
 import { useState, useEffect } from 'react';
 import './card.css'; // Ensure you have the CSS file
-   
+
 const Project = () => {
   const [projects, setProjects] = useState([]);
   const [newProject, setNewProject] = useState('');
@@ -9,7 +9,7 @@ const Project = () => {
   const [updateId, setUpdateId] = useState(null);
   const [updateValue, setUpdateValue] = useState('');
 
-  const API_URL = 'http://localhost:4000/api/project/';
+  const API_URL = 'https://rrs-backend-production.up.railway.app/';
 
   const fetchProjects = async () => {
     try {
@@ -22,14 +22,14 @@ const Project = () => {
   };
 
   const handleAddProject = async () => {
-    if (!newProject.trim()){
+    if (!newProject.trim()) {
       console.log("handler function")
       return;
-    } 
+    }
     try {
       await fetch(API_URL, {
         method: "POST",
-        mode:'cors',
+        mode: 'cors',
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name: newProject }),
       });
@@ -50,7 +50,7 @@ const Project = () => {
     }
   };
 
-  async function handleDeleteAll(){
+  async function handleDeleteAll() {
     console.log("Delete function");
     try {
       await fetch(API_URL, { method: "DELETE" });
