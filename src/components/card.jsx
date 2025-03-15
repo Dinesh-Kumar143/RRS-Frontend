@@ -9,7 +9,7 @@ const Project = () => {
   const [updateId, setUpdateId] = useState(null);
   const [updateValue, setUpdateValue] = useState('');
 
-  const API_URL = 'https://rrs-backend-production.up.railway.app/';
+  const API_URL = 'https://rrs-backend-production.up.railway.app/api/project/';
 
   const fetchProjects = async () => {
     try {
